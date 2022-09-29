@@ -14,12 +14,22 @@ class Lutador {
   // METODOS
   public function apresentar()
   {
-    
+    echo "<p>-------------------------------</p><br>";
+    echo "Lutador: " . $this->getNome();
+    echo "<br>Origem: " . $this->getNacionalidade();
+    echo "<br>Idade: " . $this->getIdade . " anos";
+    echo "<br>Altura: " . $this->getAltura();
+    echo "<br>Peso: " . $this->getPeso();
+    echo "<br>Vitorias: " . $this->getVitorias();
+    echo "<br>Derrotas: " . $this->getDerrotas();
+    echo "<br>Empates: " . $this->getEmpates();
+
+
   }
 
   public function status()
   {
-    
+    echo "<p>". $this->getNome() . " é peso " . $this->getCategoria() . " e tem " . $this->getVitorias() . " vitorias, " . $this->getDerrotas() . " derrotas e " . $this->getEmpates() . " empates.";
   }
 
   public function ganharLuta()
@@ -29,12 +39,12 @@ class Lutador {
 
   public function perderLuta()
   {
-    
+    $this->setDerrotas($this->getDerrotas() + 1);
   }
 
   public function empatarLuta()
   {
-    
+    $this->setEmpates($this->getEmpates() + 1);
   }
 
   // GETTERS, SETTERS e CONSTRUTOR
@@ -44,7 +54,7 @@ class Lutador {
     $this->nacionalidade = $na;
     $this->idade = $id;
     $this->altura = $al;
-    $this->peso = $pe;
+    $this->setPeso($pe);
     $this->vitorias = $vi;
     $this->derrotas = $de;
     $this->empates = $em;
@@ -84,10 +94,10 @@ class Lutador {
 
   public function setPeso($peso){
     $this->peso = $peso;
-    $this->setCategoria();
+    $this->setCategoria($peso);
   }
 
-  public function setCategoria(){
+  public function setCategoria($peso){
     if ($peso<52.2) {
       $this->categoria = "Invalido";
     } elseif ($peso<=70.3) {
