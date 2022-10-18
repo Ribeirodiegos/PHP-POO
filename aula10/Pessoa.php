@@ -15,12 +15,7 @@
 
     // METODOS AUXILIARES
 
-    function __construct($nome, $idade, $sexo)
-    {
-      $this->nome = $nome;
-      $this->idade = $idade;
-      $this->sexo = $sexo;
-    }
+    
 
     public function setNome($nome)
     {
